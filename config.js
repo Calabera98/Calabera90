@@ -1,77 +1,170 @@
-import {watchFile, unwatchFile} from 'fs';
-import chalk from 'chalk';
-import {fileURLToPath} from 'url';
-import fs from 'fs'; 
-import cheerio from 'cheerio';
-import fetch from 'node-fetch';
-import axios from 'axios';
-import moment from 'moment-timezone';
+import fs from 'fs'
+import { watchFile, unwatchFile } from 'fs'
+import chalk from 'chalk'
+import { fileURLToPath } from 'url'
 
+//⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰
 global.owner = [
-  ['5212412377467', 'CREADOR', true],
-  ['5212411233838', 'CREADOR', true],
-  ['5212411719888', 'CREADOR', true],
-  ['5212414147874', 'CREADOR', true]
-  
-];
-
-global.suittag = ['5212414147874'];
-global.prems = ['5212414147874'];
-
-global.packname = '乂✰ʜᴀᴅᴇs-ʙᴏᴛ-ᴍᴅ✰乂';
-global.author = '©ᴏғᴄ-ʏᴏᴠᴀɴɪ﹏✍';
-global.vs = '1.10.90';
-global.version = vs
-global.gt = '乂✰ʜᴀᴅᴇs-ʙᴏᴛ-ᴍᴅ✰乂';
-global.hadesbot = gt
-global.yt = 'https://youtu.be/aPu9wQi-z8U';
-global.youtube = yt
-global.ig = 'https://www.instagram';
-global.hadesig = ig
-global.md = 'https://github.com/OFC-YOVANI/HADES-BOT-OMEGA.git';
-global.botxdf = md
-global.nn = 'https://chat.whatsapp.com/BgyxmpSY2VYE3MT0UbLAgf';
-global.nngrupo = nn
-global.nnn = 'https://chat.whatsapp.com/BgyxmpSY2VYE3MT0UbLAgf';
-global.nnngrupo = nnn
-global.paypal = 'https://pay'
-global.donar = paypal
-global.rg = '*🍀ʀᴇsᴜʟᴛᴀᴅᴏ ᴇɴᴄᴏɴᴛʀᴀᴅᴏ✨*';
-global.resultado = rg
-global.ag = '*⚠️ᴀᴅᴠᴇʀᴛᴇɴᴄɪᴀ⚠️*';
-global.advertencia = ag
-global.iig = '*📌ɪɴғᴏʀᴍᴀᴄɪᴏɴ*✨';
-global.informacion = iig
-global.fg = '*❌ʟᴏ sᴇɴᴛɪᴍᴏs sᴇ ʜᴀ ɢᴇɴᴇʀᴀᴅᴏ ᴜɴ ᴇʀʀᴏʀ ᴠᴜᴇʟᴠᴇ ɪɴᴛᴇɴᴛᴀʀ❌*';
-global.fallo = fg
-global.mg = '*❗ᴇsᴛᴇ ᴄᴏᴍᴀɴᴅᴏ ʟᴏ ʜᴀ ᴜsᴀᴅᴏ ɪɴᴄᴏʀʀᴇᴄᴛᴀᴍᴇɴᴛᴇ*';
-global.mal = mg
-global.eeg = '*📩ˢᵁ ᴿᴱᴾᴼᴿᵀᴱ ᴴᴬ ˢᴵᴰᴼ ᴱᴺⱽᴵᴬᴰᴼ📩*';
-global.envio = eeg
-global.eg = '*🍀ʀᴇsᴜʟᴛᴀᴅᴏ ᴇɴᴄᴏɴᴛʀᴀᴅᴏ✨*';
-global.exito = eg
-
-global.wm = '©ᴏғᴄ-ʏᴏᴠᴀɴɪ﹏✍\n乂✰ʜᴀᴅᴇs-ʙᴏᴛ-ᴍᴅ✰乂';
-global.igfg = '乂✰ʜᴀᴅᴇs-ʙᴏᴛ-ᴍᴅ✰乂';
-global.wait = '⌛ _Cargando..._\n▰▰▰▱▱▱▱▱▱';
-
-global.imagen1 = fs.readFileSync('./views/Menu.jpg');
-global.imagen2 = fs.readFileSync('./views/nuevobot.jpg');
-global.imagen3 = fs.readFileSync('./views/Me.jpg');
-global.imagen4 = fs.readFileSync('./views/+18.jpg');
-global.imagen5 = fs.readFileSync('./views/anime.jpg');
-global.imagen6 = fs.readFileSync('./views/bot.jpg');
-global.imagen7 = fs.readFileSync('./views/minecraft.jpg');
-
+  ['51926328073', '𝙾𝙵𝙲 CALABERA', true],
+  ['51926328073'],
+  ['51926328073'],
+  ['51926328073'],
+]
+//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 global.mods = [] 
+global.prems = ['51926328073'], 
+global.prems = [] 
+global.APIs = { // API Prefix.
+  
+//⊱ ━━━━━.⋅ name: 'https://website' ⋅.━━━━ ⊰
+  amel: 'https://melcanz.com',
+  bx: 'https://bx-hunter.herokuapp.com',
+  nrtm: 'https://nurutomo.herokuapp.com',
+  xteam: 'https://api.xteam.xyz',
+  nzcha: 'http://nzcha-apii.herokuapp.com',
+  bg: 'http://bochil.ddns.net',
+  fdci: 'https://api.fdci.se',
+  dzx: 'https://api.dhamzxploit.my.id',
+  bsbt: 'https://bsbt-api-rest.herokuapp.com',
+  zahir: 'https://zahirr-web.herokuapp.com',
+  zeks: 'https://api.zeks.me',
+  hardianto: 'https://hardianto-chan.herokuapp.com',
+  pencarikode: 'https://pencarikode.xyz', 
+  LeysCoder: 'https://leyscoders-api.herokuapp.com',
+  adiisus: 'https://adiixyzapi.herokuapp.com',
+  lol: 'https://api.lolhuman.xyz',
+  pencarikode: 'https://pencarikode.xyz',
+  Velgrynd: 'https://velgrynd.herokuapp.com',
+  rey: 'https://server-api-rey.herokuapp.com',
+  hardianto: 'http://hardianto-chan.herokuapp.com',
+  shadow: 'https://api.reysekha.xyz',
+  apialc: 'https://api-alc.herokuapp.com',
+  botstyle: 'https://botstyle-api.herokuapp.com',
+  neoxr: 'https://neoxr-api.herokuapp.com',
+  ana: 'https://anabotofc.herokuapp.com/',
+  kanx: 'https://kannxapi.herokuapp.com/',
+  dhnjing: 'https://dhnjing.xyz'
+},
+  
+global.APIKeys = { // APIKey Here
+  //⊱ ━━━━━.⋅ 'https://website': 'apikey' ⋅.━━━━ ⊰
+  'https://api-alc.herokuapp.com': 'ConfuMods',
+  'https://api.reysekha.xyz': 'apirey',
+  'https://melcanz.com': 'F3bOrWzY',
+  'https://bx-hunter.herokuapp.com': 'Ikyy69',
+  'https://api.xteam.xyz': '5bd33b276d41d6b4',
+  'https://zahirr-web.herokuapp.com': 'zahirgans',
+  'https://bsbt-api-rest.herokuapp.com': 'benniismael',
+  'https://api.zeks.me': 'apivinz',
+  'https://hardianto-chan.herokuapp.com': 'hardianto',
+  'https://pencarikode.xyz': 'pais', 
+  'https://leyscoders-api.herokuapp.com': 'MIMINGANZ', 
+  'https://server-api-rey.herokuapp.com': 'apirey',
+  'https://api.lolhuman.xyz': '9b817532fadff8fc7cb86862',
+  'https://botstyle-api.herokuapp.com': 'Eyar749L',
+  'https://neoxr-api.herokuapp.com': 'yntkts',
+  'https://anabotofc.herokuapp.com/': 'AnaBot'
+}
 
-global.multiplier = 65
 
 
-const file = fileURLToPath(import.meta.url);
+//⊱ ━━━━━.⋅ Sticker WM ⋅.━━━━ ⊰
+
+global.packname = '𓈃ּ ៹🍏Chica Bot𐂂!s⁹⁷☻‹𝟹♞ᵇᵒᵗ⁻ᴹᴰ'
+global.author = '𓈃ּ ៹🍏𝙾𝙵𝙲 CALABERA𐂂!s⁹⁷☻‹𝟹♞ᵇᵒᵗ⁻ᴹᴰ'
+
+//━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
+
+
+//⊱ ━━━━━.⋅ Versión | Nombre | cuentas ⋅.━━━━ ⊰
+
+global.vs = '1.0.30'
+global.version = vs
+
+global.gt = '𓈃ּ ៹🍏Chica Bot𐂂!s⁹⁷☻‹𝟹♞ᵇᵒᵗ⁻ᴹᴰ'
+global.hadesbot = gt
+
+global.yt = 'https://www.youtube.com/@informaticsecurity5309'
+global.youtube = yt
+
+global.ig = 'https://www.instagram'
+global.hadesig = ig
+
+global.md = 'https://github.com/----------------------'
+global.hadesbot = md
+
+global.nn = 'https://chat.whatsapp.com/---------------'
+global.nngrupo = nn
+
+global.nnn = 'https://chat.whatsapp.com/----------------'
+global.nnngrupo = nnn
+
+global.paypal = 'romansystem.3786@gmail.com'
+global.donar = paypal
+
+//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
+
+
+//⊱ ━━━━━━━━━━━━━.⋅ Datos ⋅.━━━━━━━━━━━━━━ ⊰
+global.rg = '╰⊱✅⊱ *𝙍𝙀𝙎𝙐𝙇𝙏𝘼𝘿𝙊 | 𝙍𝙀𝙎𝙐𝙇𝙏* ⊱✅⊱╮\n\n'
+global.resultado = rg
+
+global.ag = '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n'
+global.advertencia = ag
+
+global.iig = '╰⊱❕⊱ *𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊́𝙉 | 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝙏𝙄𝙊𝙉* ⊱❕⊱╮\n\n'
+global.informacion = iig
+
+global.fg = '╰⊱❌⊱ *𝙁𝘼𝙇𝙇𝙊́ | 𝙀𝙍𝙍𝙊𝙍* ⊱❌⊱╮\n\n'
+global.fallo = fg
+
+global.mg = '╰⊱❗️⊱ *𝙇𝙊 𝙐𝙎𝙊́ 𝙈𝘼𝙇 | 𝙐𝙎𝙀𝘿 𝙄𝙏 𝙒𝙍𝙊𝙉𝙂* ⊱❗️⊱╮\n\n'
+global.mal = mg
+
+global.eeg = '╰⊱📩⊱ *𝙍𝙀𝙋𝙊𝙍𝙏𝙀 | 𝙍𝙀𝙋𝙊𝙍𝙏* ⊱📩⊱╮\n\n'
+global.envio = eeg
+
+global.eg = '╰⊱💚⊱ *𝙀́𝙓𝙄𝙏𝙊 | 𝙎𝙐𝘾𝘾𝙀𝙎𝙎* ⊱💚⊱╮\n\n'
+global.exito = eg
+
+//𝙀𝙅𝙀𝙈𝙋𝙇𝙊 | 𝙀𝙓𝘼𝙈𝙋𝙇𝙀
+//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
+
+
+//⊱ ━━━━━.⋅ Información | Information ⋅.━━━━ ⊰
+
+global.wm = '𝙾𝙵𝙲 CALABERA|Chica-𝚋𝚘𝚝-𝙼𝙳'
+global.igfg = '𓈃ּ ៹🍏CALABERA𐂂!s⁹⁷☻‹𝟹♞ᵇᵒᵗ⁻ᴹᴰ'
+global.wait = '*⌛ _Cargando..._ ▬▬▬▭*'
+
+global.imagen1 = fs.readFileSync('./src/Menu2.jpg')
+global.imagen4 = fs.readFileSync('./src/Menuxx.jpg')
+global.imagen2 = fs.readFileSync('./src/nuevobot.jpg') 
+global.imagen3 = fs.readFileSync('./src/Me.jpg')
+
+
+global.multiplier = 9999 
+
+global.rpg = {
+  emoticon(string) {
+    string = string.toLowerCase()
+    let emot = {
+      level: '🏆',
+      limit: '💎',
+      exp: '🕹️'
+    }
+    let results = Object.keys(emot).map(v => [v, new RegExp(v, 'gi')]).filter(v => v[1].test(string))
+    if (!results.length) return ''
+    else return emot[results[0][0]]
+  }
+}
+
+
+let file = fileURLToPath(import.meta.url)
 watchFile(file, () => {
-  unwatchFile(file);
-  console.log(chalk.redBright('Update \'config.js\''));
-  import(`${file}?update=${Date.now()}`);
-});
+  unwatchFile(file)
+  console.log(chalk.redBright("Update 'config.js'"))
+  import(`${file}?update=${Date.now()}`)
+})
+ 
